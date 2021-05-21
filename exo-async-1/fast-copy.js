@@ -15,9 +15,14 @@ const main = async () => {
     const dst = await fsPromises.mkdir('/users/solenepettier/desktop/BACK/exo-async-1/dst')
 
     const files = await fsPromises.readdir(src)
-    for await (const file of files) {
-      fastCopy(file, dst)
+
+    let promises = []
+
+    for (const file of files) {
+      promises.push(fastCopy(file, dst))
     }
+
+    Promise.all(promises)
 
     /*
         const response = await fsPromises.readFile(src)

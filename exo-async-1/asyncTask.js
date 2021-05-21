@@ -22,6 +22,7 @@ const main = async () => {
     asyncTask(4, 1, true)
     */
 
+    /*
     let data = await Promise.all([
       asyncTask(1, 10, true),
       asyncTask(2, 5, true),
@@ -29,6 +30,19 @@ const main = async () => {
       asyncTask(4, 1, true),
     ])
     console.log(`results: ${data}`) // data is an array
+    */
+
+    let promises = []
+    for (let i = 1; i < 10; ++i) {
+      promises.push(asyncTask(i, i, true))
+    }
+    // let results = await Promise.all(promises)
+    // for (const result of results) {
+    //   console.log(`got result: ${result}`)
+    // }
+    for await (const result of promises) {
+      console.log(`got result: ${result}`)
+    }
   } catch (e) {
     console.error(e.message)
   }
