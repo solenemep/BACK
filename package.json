@@ -7,9 +7,12 @@
     "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "commander": "^7.2.0",
+    "dotenv": "^10.0.0",
+    "ethers": "^5.4.1",
     "express": "^4.17.1",
     "jsdom": "^16.5.3",
     "readline-sync": "^1.4.10",
+    "wiki": "^0.24.0",
     "yargs": "^16.2.0"
   }
 }
